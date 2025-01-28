@@ -36,45 +36,20 @@ Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará a
     }
 console.log(listaDeNombres);
  
-
 function sortearAmigo() {
     if (listaDeNombres.length < 2) { // Verifica si hay al menos 2 nombres en la lista
         alert("No hay nombres suficientes en la lista para sortear."); // Muestra una alerta si no hay suficientes nombres
         return; // Finaliza la función
     }
     let amigoAleatorio = listaDeNombres[Math.floor(Math.random() * listaDeNombres.length)]; // Selecciona un nombre aleatorio de la lista
-    let nombreSorteado = nombre[amigoAleatorio]; // Obtiene el nombre sorteado
-    document.getElementById("amigoSecreto").textContent = amigoAleatorio; // Muestra el nombre en la página
-     li.textContent = `El amigo secreto sorteado: ${amigoSorteado}`;
-    resultado.appendChild(li); // Agrega el nombre sorteado a la lista de resultados
-}
+    mostrarResultado(amigoAleatorio); // Muestra el nombre sorteado
 
-/*
-let resultado = document.getElementById('resultado');
-    resultado.innerHTML = ""; 
-
-    let indiceAleatorio = Math.floor(Math.random() * amigos.length);
-    let amigoSorteado = amigos[indiceAleatorio];
-
-    let li = document.createElement('li');
-    li.textContent = `El amigo secreto sorteado: ${amigoSorteado}`;
-    resultado.appendChild(li);
-
-
-/*
-function sorteoAleatorio() { // Realiza el sorteo aleatorio
-    if (listaDeNombres.length <= 2) { // Verifica si hay al menos 2 nombres en la lista
-        alert("No hay nombres suficientes en la lista para sortear.");
-        return;
+    function mostrarResultado(amigoAleatorio) { // Muestra el nombre sorteado
+        let resultado = document.getElementById('resultado'); // Obtiene el elemento resultado
+        resultado.innerHTML = ""; // Limpia el contenido del elemento resultado
+        let li = document.createElement('li'); // Crea un elemento li
+        li.textContent = `Tu amigo secreto sorteado es: ${amigoAleatorio}`; // Agrega el nombre sorteado al elemento li
+        resultado.appendChild(li); // Agrega el elemento li al resultado
     }
-    let amigoSecreto = listaDeNombres[Math.floor(Math.random() * listaDeNombres.length)]; // Selecciona un nombre aleatorio de la lista
-    document.querySelector("#amigoSecreto").innerHTML = amigoSecreto; // Muestra el nombre en la página
+   
 }
-
-
-/*
-function SorteoAleatorio() {
-    let amigoSecreto = listaDeNombres[Math.floor(Math.random() * listaDeNombres.length)]; // Selecciona un nombre aleatorio de la lista
-    document.querySelector("#amigoSecreto").innerHTML = amigoSecreto; // Muestra el nombre en la página
-}
-*/
