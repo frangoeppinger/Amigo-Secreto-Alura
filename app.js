@@ -8,10 +8,19 @@ Visualizar la lista: Los nombres ingresados aparecerán en una lista debajo del 
 Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página.
 */
 
-
     let listaDeNombres = []; // Lista de nombres de amigos
     let añadirNombre = document.querySelector("#amigo"); // Obtiene el campo de texto
 
+    function visualizarLista() {
+        let listaTotal = document.getElementById('listaAmigos'); // Obtiene la lista
+        listaTotal.innerHTML = ""; // Limpia la lista
+        listaDeNombres.forEach(nombre => { // Recorre la lista de nombres
+            let li = document.createElement('li'); // Crea un elemento li
+            li.textContent = nombre; // Agrega el nombre al elemento li
+            listaTotal.appendChild(li); // Agrega el elemento li a la lista
+        });
+        
+    }
 
     function agregarAmigo() {
         let nombre = añadirNombre.value; // Obtiene el valor del campo de texto
@@ -19,6 +28,7 @@ Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará a
             alert("Por favor, ingrese un nombre válido."); // Muestra una alerta si el campo de texto está vacío
         } else {
             listaDeNombres.push(nombre); // Agrega el nombre a la lista
+            visualizarLista(); // Muestra los nombres en la lista   
             añadirNombre.value = ""; // Limpia el campo de texto
         }
     }
